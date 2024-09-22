@@ -1,0 +1,16 @@
+<!doctype html>
+{%extends "base.html" %}
+
+<html>
+
+{% block content %}
+<body>
+    {% if category_num < 1 or category_num> 114 %}
+        <h1>surah {{category_num}} does not exist</h1>
+        {% else %}
+        <h1>Youve requested the {{category_num}} surah</h1>
+        {% endif %}
+</body>
+
+{% endblock %}
+</html>

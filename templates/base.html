@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Quran App{% endblock %}</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="/">
+            <h1>Quran</h1>
+        </a>
+    </header>
+    <nav>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+        <div class="verses">
+            {{verses}}
+        </div>
+        <div class="prev-next">
+            {% if category and category_num %}
+                {% if category_num > 1 %}
+                <a href="/{{ category }}/{{ category_num - 1 }}">
+                    <button>Previous</button>
+                </a>
+                {% endif %}
+            <a href="/{{ category }}/{{ category_num + 1 }}">
+                <button>Next</button>
+            </a>
+            {% endif %}
+        </div>
+    </main>
+    <footer>
+        <p>Footer content here</p>
+    </footer>
+</body>
+
+</html>

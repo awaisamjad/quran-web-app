@@ -1,0 +1,17 @@
+<!doctype html>
+{%extends "base.html" %}
+{% block content %}
+<html>
+
+<body>
+    {% if category_num < 1 or category_num> 30 %}
+        <h1>juz {{category_num}} does not exist</h1>
+        {% else %}
+        <h1>Youve requested the {{category_num}} juz</h1>
+        {% endif %}
+</body>
+
+</html>
+
+
+{% endblock %}

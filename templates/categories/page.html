@@ -1,0 +1,16 @@
+<!doctype html>
+{%extends "base.html" %}
+{% block content %}
+<html>
+
+<body>
+    {% if category_num < 1 or category_num > 611 %} 
+        <h1>page {{category_num}} does not exist</h1>
+    {% else %}
+        <h1>Youve requested the {{category_num}} page</h1>
+    {% endif %}
+</body>
+
+</html>
+
+{% endblock %}
