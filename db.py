@@ -29,6 +29,7 @@ def get_surahs():
     conn.close()
     return surahs
 
+# ? Display the verses of a surah by its id. It returns as a list so in the jinja template all the verses are looped over
 def get_surah_by_id(id: int):
     conn = sqlite3.connect('quran.sqlite')
     cursor = conn.cursor()
