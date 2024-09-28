@@ -1,0 +1,61 @@
+<!-- ? This page contains the code for the tabs and the showing of the buttons below the tabs -->
+
+<head>
+    <style>
+        /* This is the display for all the buttons for either surah, page, juz and hizb */
+        .category_display {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category_display a {
+            margin: 5px;
+        }
+
+        .category_display button {
+            font-size: 16px;
+            padding: 10px;
+            width: 500px;
+            height: 120px;
+        }
+    </style>
+</head>
+
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <div role="group" style="outline: 1px black solid;">
+        <button>Surah</button>
+        <button>Juz</button>
+        <button>Page</button>
+        <button>Hizb</button>
+    </div>
+    <!--? JUZ -->
+    <!-- {% for i in range(1, 31) %}
+        <a href="/juz/{{i}}">Juz {{i}}</a><br>
+    {% endfor %} -->
+
+    <!--? SURAH -->
+    <div class="category_display">
+        {% for surah in surahs %}
+        <a href="/surah/{{ surah[0] }}">
+            <button> Surah {{ surah[1] }} </button>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!--? PAGE -->
+    <!-- {% for i in range(1, 612) %}
+        <a href="/page/{{i}}">Page {{i}}</a><br>
+    {% endfor %} -->
+
+    <!--? HIZB -->
+    <!-- {% for i in range(1, 62) %}
+        <a href="/hizb/{{i}}">Hizb {{i}}</a><br>
+    {% endfor %} -->
+</div>
+
+{%endblock %}

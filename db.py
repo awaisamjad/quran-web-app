@@ -1,4 +1,5 @@
 import sqlite3
+import re
 from typing import List
 
 """
@@ -19,6 +20,23 @@ number_of_verses_per_chapter = db.execute("SELECT verses_number FROM chapters").
 verses = db.execute("SELECT content FROM chapters").fetchall()
 
 # print(verses)
+
+def get_surahs():
+    conn = sqlite3.connect('quran.sqlite')
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, name_pron_en FROM chapters")
+    surahs = cursor.fetchall()
+    conn.close()
+    return surahs
+
+def get_surah_by_id(id: int):
+    conn = sqlite3.connect('quran.sqlite')
+    cursor = conn.cursor()
+    cursor.execute("SELECT content FROM chapters WHERE id = ?", (id,))
+    verses = cursor.fetchall()
+    verses_list = re.split(r"\s*\[\d+\]\s*", verses[0][0])
+    conn.close()
+    return verses_list
 
 def get_info_by_surah_name(id : int):
     result =  cursor.execute("SELECT * FROM chapters WHERE id = ?", (id,)).fetchone()
