@@ -96,4 +96,4 @@ def pages_hizb():
 
 # ! In production, the debug mode should be turned off
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
