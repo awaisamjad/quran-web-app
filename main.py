@@ -94,6 +94,6 @@ def pages_page():
 def pages_hizb():
     return render_template("pages/hizb.html")
 
-
+# ! In production, the debug mode should be turned off
 if __name__ == "__main__":
     app.run()
